@@ -5,6 +5,8 @@ This Project To Find GCD " The Greadest Common Divisor" Of Tow Given Number
 
 import java.util.Scanner;
 
+// ###### The Time complexity For This Code Is Linear O(min(a,b))#####
+ //       ######  Brute Force Approach ########
 
 /*
      ###### Algorithm of the Implementatio ######
@@ -64,11 +66,11 @@ public class Gcd {
 
 
 /*
-###### The Time complexity For The Previous Code Is Linear O(min(a,b))#####
-                ###### Efficient Brute Force Approach ########
+
 */
 /*
                 ##### Here Depends on Euclid´s Algorithm ####
+                // The Time complexity For This Code Is Linear O(max(a,b)
                 1. Find the Larger Number
                 2. Find the Difference between the Larger and the Smaller Number(DifNumber)
                 3. Replace the Larger by the (DifNumber)
@@ -76,9 +78,9 @@ public class Gcd {
                 5. Return any one Number, which is the GCD
 */
 
-// The Time complexity For This Code Is Linear O(max(a,b)
 
-public class Gcd {
+
+/*public class Gcd {
 
     static int euclidGcd(int a, int b) {
 
@@ -103,7 +105,41 @@ public class Gcd {
 
         System.out.println("The GCD Is: " + euclidGcd(a,b));
     }
-}
+}*/
 
+//  ########### Methode of Gariel Lame´ / Optimiesd Euclid´s Approach ###########
+// The Time complexity For This Code Is Log O(log(min(a,b)))
+public class Gcd {
+
+    static int euclidGcd(int a, int b) {
+
+
+        while (a != 0 && b != 0) {
+            if( a > b) {
+                a = a%b;
+            } else {
+                b = b%a;
+            }
+        }
+        if(a != 0) {
+
+            return a;
+        } else {
+            return b;
+        }
+    }
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter The First Number: ");
+        int a = scan.nextInt();
+
+        System.out.println("Enter The Second Number: ");
+        int b = scan.nextInt();
+
+        System.out.println("The GCD Is: " + euclidGcd(a,b));
+
+    }
+}
 
 
